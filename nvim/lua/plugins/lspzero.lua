@@ -7,15 +7,30 @@ return {
         local lspzero = require('lsp-zero')
 
         lspzero.on_attach(function(_, bufnr)
-            local opts = { buffer = bufnr, silent = true }
+            vim.keymap.set('n', 'K', vim.lsp.buf.hover,
+                { buffer = bufnr, silent = true, desc = ' hover' })
+            vim.keymap.set('n', '<leader>cf', vim.lsp.buf.format,
+                { buffer = bufnr, silent = true, desc = ' format code' })
+            vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename,
+                { buffer = bufnr, silent = true, desc = ' rename' })
+            vim.keymap.set('n', 'gd', vim.lsp.buf.definition,
+                { buffer = bufnr, silent = true, desc = ' go to definition' })
+            vim.keymap.set('n', 'gi', vim.lsp.buf.implementation,
+                { buffer = bufnr, silent = true, desc = ' go to implemetations' })
+            vim.keymap.set('n', 'gr', vim.lsp.buf.references,
+                { buffer = bufnr, silent = true, desc = ' go to references' })
+            vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition,
+                { buffer = bufnr, silent = true, desc = ' go to type definition' })
+            vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action,
+                { buffer = bufnr, silent = true, desc = ' code actions' })
 
-            vim.keymap.set('n', '<a-f>', vim.lsp.buf.format, opts)
-            vim.keymap.set('n', '<leader>i', vim.lsp.buf.hover, opts)
-            vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
-            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-            vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-            vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-            vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
+            local ok, which_key = pcall(require, 'which-key')
+            if ok then
+                which_key.register {
+                    ['<leader>c'] = { name = ' lsp', _ = 'which_key_ignore' },
+                    ['<leader>r'] = { name = ' rename', _ = 'which_key_ignore' },
+                }
+            end
         end)
         lspzero.set_sign_icons({ error = '', hint = '', info = '', warn = '' })
 

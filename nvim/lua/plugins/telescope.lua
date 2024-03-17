@@ -2,19 +2,18 @@ return {
     'nvim-telescope/telescope.nvim',
     config = function()
         local builtin = require('telescope.builtin')
-        local opts = { silent = true }
 
         require('telescope').setup({
             defaults = { path_display = { 'truncate' } }
         })
 
-        vim.keymap.set('n', '<leader>F', builtin.live_grep, opts)
-        vim.keymap.set('n', '<leader>d', builtin.diagnostics, opts)
-        vim.keymap.set('n', '<leader>f', builtin.find_files, opts)
-        vim.keymap.set('n', '<leader>j', builtin.jumplist, opts)
-        vim.keymap.set('n', '<leader>q', builtin.quickfix, opts)
-        vim.keymap.set('n', '<leader>s', builtin.lsp_document_symbols, opts)
-        vim.keymap.set({ 'n', 'v' }, 'gs', builtin.grep_string, opts)
+        vim.keymap.set('n', '<leader>fg', builtin.live_grep, { silent = true, desc = '󰭎 live grep'})
+        vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { silent = true, desc = '󰭎 diagnostics' })
+        vim.keymap.set('n', '<leader>ff', builtin.find_files, { silent = true, desc = '󰭎 files' })
+        vim.keymap.set('n', '<leader>fj', builtin.jumplist, { silent = true, desc = '󰭎 jumplist' })
+        vim.keymap.set('n', '<leader>fq', builtin.quickfix, { silent = true, desc = '󰭎 quickfix' })
+        vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { silent = true, desc = '󰭎 lsp document symbols' })
+        vim.keymap.set({ 'n', 'v' }, 'fgs', builtin.grep_string, { silent = true, desc = '󰭎 grep string' })
     end,
     dependencies = { 'nvim-lua/plenary.nvim' }
 }
