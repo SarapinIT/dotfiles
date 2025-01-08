@@ -46,3 +46,18 @@ vim.o.timeoutlen = 300
 
 vim.o.foldmethod = "expr"
 -- vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+
+vim.cmd [[
+    set shellcmdflag=-command
+    set shellquote=\"
+    set shellxquote=
+    set shell=powershell
+]]
+
+-- local sysname = string.lower(vim.loop.os_uname().sysname)
+-- local is_windows = string.match(sysname, "windows")
+--
+-- if is_windows then
+--     vim.o.shell = "pwsh.exe"
+--     vim.g.shell = "pwsh.exe"
+-- end
