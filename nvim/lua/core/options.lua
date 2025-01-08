@@ -1,48 +1,48 @@
-vim.opt.cursorline = true
-vim.opt.scrolloff = 999
+vim.o.cursorline = true
+vim.o.scrolloff = 999
 
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.o.number = true
+vim.o.relativenumber = true
 
-vim.opt.signcolumn = 'yes'
-vim.opt.mouse = 'a'
+vim.o.signcolumn = 'yes'
+vim.o.mouse = 'a'
 
 -- NOTE: You should make sure your terminal supports this
-vim.opt.termguicolors = true
+vim.o.termguicolors = true
 
 --  Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.opt.clipboard = 'unnamedplus'
+vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
-vim.opt.breakindent = true
+vim.o.breakindent = true
 
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 4
-vim.opt.smartindent = true
-vim.opt.softtabstop = 4
-vim.opt.tabstop = 4
-vim.opt.wrap = false
+vim.o.expandtab = true
+vim.o.shiftwidth = 4
+vim.o.smartindent = true
+vim.o.softtabstop = 4
+vim.o.tabstop = 4
+vim.o.wrap = false
 
-vim.opt.hlsearch = false
-vim.opt.ignorecase = true
-vim.opt.incsearch = true
-vim.opt.smartcase = true
+vim.o.hlsearch = false
+vim.o.ignorecase = true
+vim.o.incsearch = true
+vim.o.smartcase = true
 
-vim.opt.showmode = false
+vim.o.showmode = false
 
 -- Set completeopt to have a better completion experience
-vim.opt.completeopt = 'menuone,noselect'
+vim.o.completeopt = 'menuone,noselect'
 
-vim.opt.backup = false
-vim.opt.swapfile = false
-vim.opt.undodir = os.getenv('HOMEPATH') .. '/.nvim/undodir'
-vim.opt.undofile = true
+vim.o.backup = false
+vim.o.swapfile = false
+vim.o.undodir = os.getenv('HOMEPATH') .. '/.nvim/undodir'
+vim.o.undofile = true
 
 -- Decrease update time
-vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
 
-vim.opt.foldmethod = "expr"
+vim.o.foldmethod = "expr"
 -- vim.o.foldexpr = "nvim_treesitter#foldexpr()"
