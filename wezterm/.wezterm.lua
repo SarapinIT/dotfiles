@@ -43,13 +43,18 @@ config.default_prog = { 'pwsh.exe', '-NoLogo'}
 config.leader = { key = ' ', mods = 'CTRL', timeout_milliseconds = 2000, }
 
 config.keys = {
-  -- { key = 'w', mods = 'CTRL', action = act.ActivateKeyTable { name = "panes" }},
 
   { key = 'b', mods = 'ALT', action = act.RotatePanes 'CounterClockwise'},
   { key = 'n', mods = 'ALT', action = act.RotatePanes 'Clockwise' },
   { key = 'v', mods = 'ALT', action = act.SplitHorizontal },
   { key = 's', mods = 'ALT', action = act.SplitVertical },
 
+  { key = 'h', mods = 'ALT', action = act.ActivatePaneDirection 'Left'},
+  { key = 'j', mods = 'ALT', action = act.ActivatePaneDirection 'Down'},
+  { key = 'k', mods = 'ALT', action = act.ActivatePaneDirection 'Up'},
+  { key = 'l', mods = 'ALT', action = act.ActivatePaneDirection 'Right'},
+
+  -- { key = 'w', mods = 'CTRL', action = act.ActivateKeyTable { name = "panes" }},
 }
 
 -- config.key_tables = {
